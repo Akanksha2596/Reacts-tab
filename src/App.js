@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { FaAngleDoubleRight} from 'react-icons/fa'
+
 const url = 'https://course-api.com/react-tabs-project'
+
 function App() {
   const[loading, setLoading] = useState(true);
   const[jobs, setJobs] = useState([]);
@@ -12,7 +14,7 @@ function App() {
     setJobs(newJobs);
     setLoading(false);
   };
-
+// a lifecycle method involves after mount, after update, and before unmount .
   useEffect(() => {
     fetchJobs();
   },[]);
@@ -31,13 +33,13 @@ function App() {
          <div className='title'>
           <h1>Experience</h1>
           <div className='underline'></div>
-        </div>
+         </div>
         <div className='jobs-center'>
           {/* btn-container */}
           <div className='btn-container'>
             {jobs.map((item, index) => {
               return (
-                <button key={item.id} onClick={()=>setValue(index)}
+                <button key={item.id} onClick={() => setValue(index)}
                 className={`job-btn ${index === value && 'active-btn'}`}>
                   {item.company}
                 </button>
